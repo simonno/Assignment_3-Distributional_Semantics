@@ -1,16 +1,12 @@
-from collections import defaultdict, Counter
+from WordFeature import WordFeature
 
 
-class SentenceWordFeature:
+class SentenceWordFeature(WordFeature):
     def __init__(self):
-        self.sentence_word_feature = defaultdict(Counter)
+        super().__init__()
 
     def add_sentence(self, sentence):
-        for word in sentence:
-            for feature in sentence:
-                if feature != word:
-                    self.sentence_word_feature[word][feature] += 1
-
-
-
-
+        for target_word_token in sentence:
+            for feature_token in sentence:
+                if feature_token != target_word_token:
+                    self._word_feature[target_word_token.LEMMA][feature_token.LEMMA] += 1

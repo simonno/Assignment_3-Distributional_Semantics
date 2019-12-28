@@ -1,20 +1,25 @@
+from collections import Counter
 from datetime import datetime
 
 from CorpusParse import corpus_parser
-from SimilarityComputation import compute_counters
 
 
-# def print_words_counter(words_counter, number=50):
-#     words_counter = sorted(words_counter.items(), key=lambda item: item[1])
-#     for i in range(number):
-#         print('{}')
+def print_most_common_words(words_counter, most_common=50):
+    with open('counts_words.txt', 'w') as file:
+        for word, count in words_counter.most_common(most_common):
+            file.write('{0} {1}\n'.format(word, count))
 
 
 def main(corpus_file_name):
+    target_words = ['car', 'bus', 'hospital', 'hotel', 'gun', 'bomb', 'horse', 'fox', 'table', 'bowl', 'guitar',
+                    'piano']
     start = datetime.now()
-    sentences = corpus_parser(corpus_file_name)
-    words_counter, pairs_counter, window_pairs_counter = compute_counters(sentences)
-    # print_words_counter(words_counter)
+    words_counter, sentence, window, dependency_edge = corpus_parser(corpus_file_name)
+    sentence.filter_features()
+    window.filter_features()
+    dependency_edge.filter_features()
+    words_counter = Counter({word: count for word, count in words_counter.items() if count > 99})
+    print_most_common_words(words_counter)
     print('Running time: ', datetime.now() - start)
 
 
