@@ -24,4 +24,4 @@ def main(corpus_file_name):
 
 
 if __name__ == '__main__':
-    main('wikipedia.tinysample.trees.lemmatized.txt')
+    main('wikipedia.sample.trees.lemmatized')

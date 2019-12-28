@@ -27,8 +27,8 @@ def corpus_parser(corpus_file_name):
         for line in corpus_file:
             if line == '\n':
                 sentence_word_feature.add_sentence(sentence)
-                window_word_feature.add_sentence(sentence)
-                dependency_edge_word_feature.add_sentence(sentence)
+                # window_word_feature.add_sentence(sentence)
+                # dependency_edge_word_feature.add_sentence(sentence)
                 sentence = list()
                 print('sentence {0} running time: {1}'.format(counter, datetime.now() - start))
                 start = datetime.now()
