@@ -46,7 +46,7 @@ class DependencyEdgeWordFeature(WordFeature):
                 self.__add_feature(target_word_token.LEMMA, lemma, dependency, -1)
 
     def __add_feature(self, target_word, feature, feature_dep, direction):
-        self._word_feature[target_word][(feature, feature_dep, direction)] += 1
+        self._update_word_feature(target_word, (feature, feature_dep, direction))
 
     @staticmethod
     def search_modifies_the_preposition(preposition_token, sentence):

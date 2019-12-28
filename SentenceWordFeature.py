@@ -11,4 +11,4 @@ class SentenceWordFeature(WordFeature):
                 continue
             for feature_token in sentence:
                 if feature_token != target_word_token:
-                    self._word_feature[target_word_token.LEMMA][feature_token.LEMMA] += 1
+                    self._update_word_feature(target_word_token.LEMMA, feature_token.LEMMA)

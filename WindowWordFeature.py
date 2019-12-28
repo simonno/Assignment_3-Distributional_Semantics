@@ -16,14 +16,14 @@ class WindowWordFeature(WordFeature):
                 continue
             left_features_tokens = sentence[:target_word_index]
             right_features_tokens = sentence[target_word_index + 1:]
-            self.__add_features(target_word_token.LEMMA, reversed(left_features_tokens))
-            self.__add_features(target_word_token.LEMMA, right_features_tokens)
+            self.__add_features(target_word_token, reversed(left_features_tokens))
+            self.__add_features(target_word_token, right_features_tokens)
 
-    def __add_features(self, target_word, features_tokens):
+    def __add_features(self, target_word_token, features_tokens):
         window_size = 0
         for feature_token in features_tokens:
             if not self.is_function_word(feature_token):
-                self._word_feature[target_word][feature_token.LEMMA] += 1
+                self._update_word_feature(target_word_token.LEMMA, feature_token.LEMMA)
                 window_size += 1
 
             if window_size == self.__window_size:
