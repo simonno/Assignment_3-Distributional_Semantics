@@ -4,11 +4,12 @@ from collections import Counter, defaultdict
 
 
 class WordFeature(ABC):
+    _last_key = 0
+    _number_key_of_word = defaultdict()
+
     def __init__(self):
         self._word_feature = defaultdict(Counter)
         self._feature_word = defaultdict(list)
-        self._last_key = 0
-        self._number_key_of_word = defaultdict()
         self._total_feature_co_occurrences = defaultdict(int)
         self._total_target_word_co_occurrences = defaultdict(int)
         self._total_co_occurrences = 0
