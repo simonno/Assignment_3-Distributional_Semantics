@@ -5,7 +5,6 @@ from CorpusParse import corpus_parser
 from DependencyEdgeWordFeature import DependencyEdgeWordFeature
 from SentenceWordFeature import SentenceWordFeature
 from WindowWordFeature import WindowWordFeature
-from WordToNumber import WordToNumber
 
 
 def print_most_common_words(words_counter, most_common=50):
@@ -27,20 +26,37 @@ def print_most_similarity_words(similar_words, most_similar=20):
             file.write('*********\n')
 
 
+def read_lines(corpus_file_name):
+    with open(corpus_file_name, 'r', encoding='utf8', errors='ignore') as corpus_file:
+        lines = corpus_file.readlines()
+    return lines
+
+
 def main(corpus_file_name):
     target_words = ['car', 'bus', 'hospital', 'hotel', 'gun', 'bomb', 'horse', 'fox', 'table', 'bowl', 'guitar',
                     'piano']
     start = datetime.now()
-    sentence_word_feature = SentenceWordFeature()
-    window_word_feature = WindowWordFeature()
-    dependency_edge_word_feature = DependencyEdgeWordFeature()
+    lines = read_lines(corpus_file_name)
 
-    words_counter = corpus_parser(corpus_file_name,
-                                  [sentence_word_feature, window_word_feature, dependency_edge_word_feature])
+    start2 = datetime.now()
+    sentence_word_feature = SentenceWordFeature()
+    words_counter = corpus_parser(lines, sentence_word_feature)
     words_counter = Counter({word: count for word, count in words_counter.items() if count > 99})
     sentence_word_feature.filter_features(words_counter)
+    print('all sentence running time: {}'.format(datetime.now() - start2))
+
+    start2 = datetime.now()
+    window_word_feature = WindowWordFeature()
+    corpus_parser(lines, window_word_feature)
     window_word_feature.filter_features(words_counter)
+    print('window running time: {}'.format(datetime.now() - start2))
+
+    start2 = datetime.now()
+    dependency_edge_word_feature = DependencyEdgeWordFeature()
     dependency_edge_word_feature.filter_features(words_counter)
+    corpus_parser(lines, dependency_edge_word_feature)
+    print('dep running time: {}'.format(datetime.now() - start2))
+
     print_most_common_words(words_counter)
 
     similar_words = defaultdict(list)

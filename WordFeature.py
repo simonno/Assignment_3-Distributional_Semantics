@@ -4,10 +4,11 @@ from math import log
 
 
 class WordFeature(ABC):
+    _number_key_of_word = defaultdict()
+    _last_key = 0
 
     def __init__(self):
-        self._number_key_of_word = defaultdict()
-        self._last_key = 0
+
         self._word_feature = defaultdict(Counter)
         self._feature_word = defaultdict(list)
         self._total_feature_co_occurrences = defaultdict(int)
@@ -21,7 +22,7 @@ class WordFeature(ABC):
         self._total_co_occurrences = 0
         filtered_word_feature = defaultdict(Counter)
         for target_word in filtered_target_words:
-            target_word = self._get_number_key(target_word)
+            target_word = WordFeature._get_number_key(target_word)
             word_feature = self._word_feature[target_word]
             filtered_features = Counter()
             for feature, occurrence in word_feature.items():
@@ -37,9 +38,12 @@ class WordFeature(ABC):
         self._word_feature = filtered_word_feature
 
     def _update_word_feature(self, target_word, feature):
-        target_word = self._get_number_key(target_word)
-        feature = self._get_number_key(feature)
-        self._word_feature[target_word][feature] += 1
+        target_word = WordFeature._get_number_key(target_word)
+        feature = WordFeature._get_number_key(feature)
+        try:
+            self._word_feature[target_word][feature] += 1
+        except MemoryError:
+            print('error')
 
     def _calculate_pmi(self, target_word, feature):
         return log((self._word_feature[target_word][feature] * self._total_co_occurrences) / (
@@ -52,7 +56,7 @@ class WordFeature(ABC):
         return similarity
 
     def _similarity_vector(self, word):
-        word = self._get_number_key(word)
+        word = WordFeature._get_number_key(word)
         similarity = defaultdict(float)
         for feature, co_occurrences in self._word_feature[word].items():
             for target_word in self._feature_word[feature]:
@@ -60,36 +64,39 @@ class WordFeature(ABC):
                                                                  self._calculate_pmi(target_word, feature)
         return similarity
 
-    def _get_word_by_key(self, word_key):
-        for word, key in self._number_key_of_word.items():
+    @staticmethod
+    def _get_word_by_key(word_key):
+        for word, key in WordFeature._number_key_of_word.items():
             if word_key == key:
                 return word
 
-    def _convert_keys_to_words(self, keys_list):
+    @staticmethod
+    def _convert_keys_to_words(keys_list):
         words = list()
         for key in keys_list:
-            words.append(self._get_word_by_key(key))
+            words.append(WordFeature._get_word_by_key(key))
         return words
 
-    def _get_number_key(self, word):
-        if word in self._number_key_of_word.keys():
-            return self._number_key_of_word[word]
+    @staticmethod
+    def _get_number_key(word):
+        if word in WordFeature._number_key_of_word.keys():
+            return WordFeature._number_key_of_word[word]
 
-        self._last_key += 1
-        self._number_key_of_word[word] = self._last_key
-        return self._last_key
+        WordFeature._last_key += 1
+        WordFeature._number_key_of_word[word] = WordFeature._last_key
+        return WordFeature._last_key
 
     @staticmethod
     def is_function_word(token):
-        return True if token.CPOSTAG in ['DT', 'PRP', 'WDT', 'IN', 'CC', 'RB', 'RP', ',', '.', ':'] else False
+        return True if token[3] in ['DT', 'PRP', 'WDT', 'IN', 'CC', 'RB', 'RP'] or token[7] == 'p' else False
 
     @staticmethod
     def is_preposition_word(token):
-        return True if token.CPOSTAG == 'IN' else False
+        return True if token[3] == 'IN' else False
 
     @staticmethod
     def is_noun_word(token):
-        return True if token.CPOSTAG in ['NN', 'NNP', 'NNS'] else False
+        return True if token[3] in ['NN', 'NNP', 'NNS'] else False
 
     @abstractmethod
     def add_sentence(self, sentence):

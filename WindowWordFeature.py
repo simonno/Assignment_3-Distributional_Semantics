@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from WordFeature import WordFeature
 
 
@@ -23,7 +25,7 @@ class WindowWordFeature(WordFeature):
         window_size = 0
         for feature_token in features_tokens:
             if not self.is_function_word(feature_token):
-                self._update_word_feature(target_word_token.LEMMA, feature_token.LEMMA)
+                self._update_word_feature(target_word_token[2], feature_token[2])
                 # self._word_feature[target_word_token.LEMMA][feature_token.LEMMA] += 1
                 window_size += 1
 
