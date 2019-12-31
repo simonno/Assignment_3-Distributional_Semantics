@@ -12,14 +12,15 @@ def line_parser(line):
     return fields
 
 
-def corpus_parser(lines, word_feature):
+def corpus_parser(lines, word_feature_types):
     sentence = list()
     words_counter = Counter()
     start = datetime.now()
     counter = 0
     for line in lines:
         if line == '\n':
-            word_feature.add_sentence(sentence)
+            for word_feature in word_feature_types:
+                word_feature.add_sentence(sentence)
             sentence.clear()
             if counter % 100000 == 0:
                 print('sentence {0} running time: {1}'.format(counter, datetime.now() - start))
@@ -32,3 +33,16 @@ def corpus_parser(lines, word_feature):
 
     print('sentence {0} running time: {1}'.format(counter, datetime.now() - start))
     return words_counter
+
+
+def writetofile(lines):
+    counter = 0
+    with open('test', 'w', encoding='utf-8') as file:
+        for line in lines:
+            if line == '\n':
+                file.write('\n')
+                counter += 1
+                if counter == 500000:
+                    return
+            else:
+                file.write(line)

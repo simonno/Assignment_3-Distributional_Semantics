@@ -1,3 +1,5 @@
+import sys
+
 import numpy as np
 
 
@@ -87,13 +89,13 @@ def combine_results(result1, result2):
     return combined_result
 
 
-def main():
+def main(bow5_word_file, bow5_contexts_file, deps_words_file, dep_contexts_file):
     target_words = ['car', 'bus', 'hospital', 'hotel', 'gun', 'bomb', 'horse', 'fox', 'table', 'bowl', 'guitar',
                     'piano']
 
-    bow5_similar_words, bow5_best_contexts = get_similar_words_and_best_contexts('bow5.words', 'bow5.contexts',
+    bow5_similar_words, bow5_best_contexts = get_similar_words_and_best_contexts(bow5_word_file, bow5_contexts_file,
                                                                                  target_words)
-    deps_similar_words, deps_best_contexts = get_similar_words_and_best_contexts('deps.words', 'deps.contexts',
+    deps_similar_words, deps_best_contexts = get_similar_words_and_best_contexts(deps_words_file, dep_contexts_file,
                                                                                  target_words)
 
     print_most_similarity_words('similarities_words', target_words,
@@ -102,4 +104,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])

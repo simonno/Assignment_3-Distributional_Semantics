@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from collections import Counter, defaultdict
+from datetime import datetime
 from math import log
 
 
@@ -8,7 +9,6 @@ class WordFeature(ABC):
     _last_key = 0
 
     def __init__(self):
-
         self._word_feature = defaultdict(Counter)
         self._feature_word = defaultdict(list)
         self._total_feature_co_occurrences = defaultdict(int)
@@ -40,6 +40,16 @@ class WordFeature(ABC):
     def _update_word_feature(self, target_word, feature):
         target_word = WordFeature._get_number_key(target_word)
         feature = WordFeature._get_number_key(feature)
+        # if target_word not in self._word_feature.keys():
+        #         self._word_feature[target_word] = dict()
+        #         self._word_feature[target_word][feature] = 1
+        #
+        #     elif feature not in self._word_feature[target_word].keys():
+        #         self._word_feature[target_word][feature] = 1
+        #     else:
+        #         self._word_feature[target_word][feature] += 1
+        # except MemoryError:
+        #     print('error')
         try:
             self._word_feature[target_word][feature] += 1
         except MemoryError:
