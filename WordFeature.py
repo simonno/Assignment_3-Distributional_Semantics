@@ -1,11 +1,13 @@
-import math
 from abc import ABC, abstractmethod
 from collections import Counter, defaultdict
+from math import log
 
 
 class WordFeature(ABC):
 
     def __init__(self):
+        self._number_key_of_word = defaultdict()
+        self._last_key = 0
         self._word_feature = defaultdict(Counter)
         self._feature_word = defaultdict(list)
         self._total_feature_co_occurrences = defaultdict(int)
@@ -19,7 +21,8 @@ class WordFeature(ABC):
         self._total_co_occurrences = 0
         filtered_word_feature = defaultdict(Counter)
         for target_word in filtered_target_words:
-            word_feature = self._word_feature[hash(target_word)]
+            target_word = self._get_number_key(target_word)
+            word_feature = self._word_feature[target_word]
             filtered_features = Counter()
             for feature, occurrence in word_feature.items():
                 if occurrence >= at_least_feature_occurrences:
@@ -34,30 +37,47 @@ class WordFeature(ABC):
         self._word_feature = filtered_word_feature
 
     def _update_word_feature(self, target_word, feature):
-
-        # hash_target_word = hash(target_word)
-        # hash_feature = hash(feature)
-        # self._number_key_of_word[hash_target_word] = target_word
-        # self._number_key_of_word[feature] = feature
+        target_word = self._get_number_key(target_word)
+        feature = self._get_number_key(feature)
         self._word_feature[target_word][feature] += 1
 
     def _calculate_pmi(self, target_word, feature):
-        return math.log((self._word_feature[target_word][feature] * self._total_co_occurrences) / (
+        return log((self._word_feature[target_word][feature] * self._total_co_occurrences) / (
                 self._total_feature_co_occurrences[feature] * self._total_target_word_co_occurrences[target_word]))
 
     def get_most_similarity_words(self, word, most_common=20):
-        similarity = list(sorted(self.similarity_vector(word), key=lambda k, v: v))
-        if most_common > len(similarity):
-            return similarity
-        return similarity[:most_common]
+        similarity = list(sorted(self._similarity_vector(word), key=lambda k, v: v))
+        if most_common < len(similarity):
+            similarity = similarity[:most_common]
+        return similarity
 
-    def similarity_vector(self, word):
+    def _similarity_vector(self, word):
+        word = self._get_number_key(word)
         similarity = defaultdict(float)
         for feature, co_occurrences in self._word_feature[word].items():
             for target_word in self._feature_word[feature]:
-                similarity[target_word] += self._calculate_pmi(word, feature) * \
-                                                               self._calculate_pmi(target_word, feature)
+                similarity[self._get_number_key(target_word)] += self._calculate_pmi(word, feature) * \
+                                                                 self._calculate_pmi(target_word, feature)
         return similarity
+
+    def _get_word_by_key(self, word_key):
+        for word, key in self._number_key_of_word.items():
+            if word_key == key:
+                return word
+
+    def _convert_keys_to_words(self, keys_list):
+        words = list()
+        for key in keys_list:
+            words.append(self._get_word_by_key(key))
+        return words
+
+    def _get_number_key(self, word):
+        if word in self._number_key_of_word.keys():
+            return self._number_key_of_word[word]
+
+        self._last_key += 1
+        self._number_key_of_word[word] = self._last_key
+        return self._last_key
 
     @staticmethod
     def is_function_word(token):

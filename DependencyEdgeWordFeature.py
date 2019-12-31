@@ -23,7 +23,7 @@ class DependencyEdgeWordFeature(WordFeature):
             if not modified_token:
                 return
             dependency = target_word_token.DEPREL + ' ' + head.DEPREL
-            lemma = head.LEMMA + ' ' + modified_token.LEMMA
+            lemma = head.LEMMA + modified_token.LEMMA
         else:
             dependency = target_word_token.DEPREL
             lemma = head.LEMMA
@@ -38,7 +38,7 @@ class DependencyEdgeWordFeature(WordFeature):
                     if not modifies_token:
                         continue
                     dependency = token.DEPREL + ' ' + modifies_token.DEPREL
-                    lemma = token.LEMMA + ' ' + modifies_token.LEMMA
+                    lemma = token.LEMMA + modifies_token.LEMMA
                 else:
                     dependency = token.DEPREL
                     lemma = token.LEMMA
@@ -47,6 +47,7 @@ class DependencyEdgeWordFeature(WordFeature):
 
     def __add_feature(self, target_word, feature, feature_dep, direction):
         self._update_word_feature(target_word, (feature, feature_dep, direction))
+        # self._word_feature[target_word][(feature, feature_dep, direction)] += 1
 
     @staticmethod
     def search_modifies_the_preposition(preposition_token, sentence):

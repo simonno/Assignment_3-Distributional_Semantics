@@ -2,6 +2,10 @@ from collections import Counter, defaultdict
 from datetime import datetime
 
 from CorpusParse import corpus_parser
+from DependencyEdgeWordFeature import DependencyEdgeWordFeature
+from SentenceWordFeature import SentenceWordFeature
+from WindowWordFeature import WindowWordFeature
+from WordToNumber import WordToNumber
 
 
 def print_most_common_words(words_counter, most_common=50):
@@ -27,19 +31,23 @@ def main(corpus_file_name):
     target_words = ['car', 'bus', 'hospital', 'hotel', 'gun', 'bomb', 'horse', 'fox', 'table', 'bowl', 'guitar',
                     'piano']
     start = datetime.now()
-    number_key_of_word, words_counter, sentence, window, dependency_edge = corpus_parser(corpus_file_name)
+    sentence_word_feature = SentenceWordFeature()
+    window_word_feature = WindowWordFeature()
+    dependency_edge_word_feature = DependencyEdgeWordFeature()
+
+    words_counter = corpus_parser(corpus_file_name,
+                                  [sentence_word_feature, window_word_feature, dependency_edge_word_feature])
     words_counter = Counter({word: count for word, count in words_counter.items() if count > 99})
-    sentence.filter_features(words_counter)
-    window.filter_features(words_counter)
-    dependency_edge.filter_features(words_counter)
+    sentence_word_feature.filter_features(words_counter)
+    window_word_feature.filter_features(words_counter)
+    dependency_edge_word_feature.filter_features(words_counter)
     print_most_common_words(words_counter)
 
     similar_words = defaultdict(list)
     for target_word in target_words:
-        target_word = number_key_of_word[target_word]
-        similar_words[target_word].append(sentence.get_most_similarity_words(target_word))
-        similar_words[target_word].append(window.get_most_similarity_words(target_word))
-        similar_words[target_word].append(dependency_edge.get_most_similarity_words(target_word))
+        similar_words[target_word].append(sentence_word_feature.get_most_similarity_words(target_word))
+        similar_words[target_word].append(window_word_feature.get_most_similarity_words(target_word))
+        similar_words[target_word].append(dependency_edge_word_feature.get_most_similarity_words(target_word))
 
     print_most_similarity_words(similar_words)
 

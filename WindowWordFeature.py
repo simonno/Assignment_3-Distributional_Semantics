@@ -24,6 +24,7 @@ class WindowWordFeature(WordFeature):
         for feature_token in features_tokens:
             if not self.is_function_word(feature_token):
                 self._update_word_feature(target_word_token.LEMMA, feature_token.LEMMA)
+                # self._word_feature[target_word_token.LEMMA][feature_token.LEMMA] += 1
                 window_size += 1
 
             if window_size == self.__window_size:

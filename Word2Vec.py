@@ -39,7 +39,7 @@ class Word2Vec:
 
     def most_similar_words(self, word, most_similar=20):
         sims = self.compute_similarities(word)
-        most_similar_indexes = sims.argsort()[-1:-most_similar:-1]
+        most_similar_indexes = sims.argsort()[-2:-(most_similar + 1):-1]
         return [self.words[index] for index in most_similar_indexes]
 
     def best_context_attributes(self, word, best=20):

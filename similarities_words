@@ -1,6 +1,5 @@
 car
 
-car	car
 cars	truck
 truck	suv
 automobile	vehicle
@@ -19,10 +18,10 @@ moped	motorcycle
 motorhome	bike
 mercedes-benz	motorhome
 bike	taxicab
+rear-engined	roadster
 *******
 bus
 
-bus	bus
 buses	minibus
 tram	tram
 metrobus	buses
@@ -41,10 +40,10 @@ mini-bus	trolley
 light-rail	tramcar
 rail	railcar
 transit	railmotor
+trolleybus	intercityexpress
 *******
 hospital
 
-hospital	hospital
 clinic	sanatorium
 hospitals	hospice
 infirmary	sanitorium
@@ -63,10 +62,10 @@ siriraj	leprosarium
 sanitarium	rikshospitalet
 in-patient	heliport
 incurables	gaol
+orthopaedic	guesthouse
 *******
 hotel
 
-hotel	hotel
 motel	motel
 restaurant	hotels
 doubletree	casino
@@ -85,10 +84,10 @@ tavern	café
 apartments	condo
 boutique	brewpub
 nightclub	sheraton
+marriott	steakhouse
 *******
 gun
 
-gun	gun
 guns	guns
 cannon	handgun
 howitzer	machinegun
@@ -107,10 +106,10 @@ recoilless	flamethrower
 3-inch	carbine
 rifle	machine-gun
 88mm	weapon
+large-caliber	carronade
 *******
 bomb
 
-bomb	bomb
 bombs	bombs
 detonated	firebomb
 detonates	landmine
@@ -129,10 +128,10 @@ blast	kamikaze
 explosives	munition
 detonations	explosives
 landmine	machinegun
+tallboy	a-bomb
 *******
 horse
 
-horse	horse
 horses	horses
 standardbred	goat
 saddlebred	dog
@@ -151,10 +150,10 @@ harness	zebu
 chariot	donkey
 appaloosa	sidesaddle
 sulky	racehorse
+racehorse	elephant
 *******
 fox
 
-fox	fox
 abc	daystar
 cbs	nbc
 nbc	byutv
@@ -173,10 +172,10 @@ oln	nbc-tv
 blitzer	soapnet
 nesn	cinemax
 wesh	wdiv
+wb	mundofox
 *******
 table
 
-table	table
 tables	tables
 sortable	leaderboard
 wikitable	sideboard
@@ -195,10 +194,10 @@ brackets	stepladder
 header	cladogram
 footer	letterbox
 tabular	windowsill
+menu	bookcase
 *******
 bowl
 
-bowl	bowl
 xliii	bowls
 xlii	superbowl
 xliv	arenabowl
@@ -217,10 +216,10 @@ xxxiv	alcs
 bluebonnet	nlds
 gator	cup
 xxviii	kvalserien
+xxxii	tourney
 *******
 guitar
 
-guitar	guitar
 harmonica	saxophone
 mandolin	bass
 bass	mandolin
@@ -239,10 +238,10 @@ melodica	autoharp
 percussion	clarinet
 vibraphone	sitar
 tambourine	fiddle
+vocals	drums
 *******
 piano
 
-piano	piano
 violin	violin
 cello	cello
 harpsichord	harpsichord
@@ -261,4 +260,5 @@ sonatas	violoncello
 trumpet	trumpet
 mandolin	harmonica
 pianoforte	clavinet
+vibraphone	clavichord
 *******
