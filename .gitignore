@@ -1,1 +1,5 @@
 /wikipedia.sample.trees.lemmatized
+/deps.words
+/deps.contexts
+/bow5.contexts
+/bow5.words

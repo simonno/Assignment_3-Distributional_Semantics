@@ -4,8 +4,6 @@ from collections import Counter, defaultdict
 
 
 class WordFeature(ABC):
-    _last_key = 0
-    _number_key_of_word = defaultdict()
 
     def __init__(self):
         self._word_feature = defaultdict(Counter)
@@ -41,7 +39,7 @@ class WordFeature(ABC):
         # hash_feature = hash(feature)
         # self._number_key_of_word[hash_target_word] = target_word
         # self._number_key_of_word[feature] = feature
-        self._word_feature[self._get_number_key(target_word)][self._get_number_key(feature)] += 1
+        self._word_feature[target_word][feature] += 1
 
     def _calculate_pmi(self, target_word, feature):
         return math.log((self._word_feature[target_word][feature] * self._total_co_occurrences) / (
@@ -54,21 +52,12 @@ class WordFeature(ABC):
         return similarity[:most_common]
 
     def similarity_vector(self, word):
-        word = self._get_number_key(word)
         similarity = defaultdict(float)
         for feature, co_occurrences in self._word_feature[word].items():
             for target_word in self._feature_word[feature]:
-                similarity[self._number_key_of_word[target_word]] += self._calculate_pmi(word, feature) * \
-                                                                     self._calculate_pmi(target_word, feature)
+                similarity[target_word] += self._calculate_pmi(word, feature) * \
+                                                               self._calculate_pmi(target_word, feature)
         return similarity
-
-    def _get_number_key(self, word):
-        if word in self._number_key_of_word.keys():
-            return self._number_key_of_word[word]
-        else:
-            self._last_key += 1
-            self._number_key_of_word[word] = self._last_key
-            return self._last_key
 
     @staticmethod
     def is_function_word(token):
