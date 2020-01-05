@@ -11,7 +11,6 @@ class WindowWordFeature(WordFeature):
     def add_sentence(self, sentence):
         if self.__window_size == 0:
             return
-
         for target_word_index in range(len(sentence)):
             target_word_token = sentence[target_word_index]
             if self.is_function_word(target_word_token):
@@ -26,7 +25,6 @@ class WindowWordFeature(WordFeature):
         for feature_token in features_tokens:
             if not self.is_function_word(feature_token):
                 self._update_word_feature(target_word_token[2], feature_token[2])
-                # self._word_feature[target_word_token.LEMMA][feature_token.LEMMA] += 1
                 window_size += 1
 
             if window_size == self.__window_size:

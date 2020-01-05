@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from WordFeature import WordFeature
 
 
@@ -11,7 +9,7 @@ class SentenceWordFeature(WordFeature):
         for target_word_token in sentence:
             if self.is_function_word(target_word_token):
                 continue
-            for feature_token in sentence:
-                if feature_token != target_word_token:
-                    self._update_word_feature(target_word_token[2], feature_token[2])
-                    # self._word_feature[target_word_token.LEMMA][feature_token.LEMMA] += 1
+            new_sentence = sentence.copy()
+            new_sentence.remove(target_word_token)
+            for feature_token in new_sentence:
+                self._update_word_feature(target_word_token[2], feature_token[2])

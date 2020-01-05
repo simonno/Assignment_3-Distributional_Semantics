@@ -1,18 +1,18 @@
 from abc import ABC, abstractmethod
 from collections import Counter, defaultdict
-from datetime import datetime
-from math import log
+from math import log, inf
 
 
 class WordFeature(ABC):
     _number_key_of_word = defaultdict()
-    _last_key = 0
+    _number_to_word = list()
+    _last_key = -1
 
     def __init__(self):
         self._word_feature = defaultdict(Counter)
         self._feature_word = defaultdict(list)
-        self._total_feature_co_occurrences = defaultdict(int)
-        self._total_target_word_co_occurrences = defaultdict(int)
+        self._total_feature_co_occurrences = Counter()
+        self._total_target_word_co_occurrences = Counter()
         self._total_co_occurrences = 0
 
     def get_word_feature_dict(self):
@@ -31,38 +31,33 @@ class WordFeature(ABC):
                     self._feature_word[feature].append(target_word)
                     self._total_co_occurrences += 1
                     self._total_feature_co_occurrences[feature] += 1
-                    self._total_target_word_co_occurrences[feature] += 1
+                    self._total_target_word_co_occurrences[target_word] += 1
 
             if len(filtered_features.items()):
-                filtered_word_feature[target_word] = Counter(filtered_features.most_common(most_common))
+                filtered_word_feature[target_word] = Counter(dict(filtered_features.most_common(most_common)))
         self._word_feature = filtered_word_feature
 
     def _update_word_feature(self, target_word, feature):
-        target_word = WordFeature._get_number_key(target_word)
-        feature = WordFeature._get_number_key(feature)
-        # if target_word not in self._word_feature.keys():
-        #         self._word_feature[target_word] = dict()
-        #         self._word_feature[target_word][feature] = 1
-        #
-        #     elif feature not in self._word_feature[target_word].keys():
-        #         self._word_feature[target_word][feature] = 1
-        #     else:
-        #         self._word_feature[target_word][feature] += 1
-        # except MemoryError:
-        #     print('error')
+        target_word2 = WordFeature._get_number_key(target_word)
+        feature2 = WordFeature._get_number_key(feature)
         try:
-            self._word_feature[target_word][feature] += 1
+            self._word_feature[target_word2][feature2] += 1
         except MemoryError:
             print('error')
 
     def _calculate_pmi(self, target_word, feature):
-        return log((self._word_feature[target_word][feature] * self._total_co_occurrences) / (
+        word_feature_co_occurrences = self._word_feature[target_word][feature]
+        if word_feature_co_occurrences == 0:
+            return -inf
+        return log((word_feature_co_occurrences * self._total_co_occurrences) / (
                 self._total_feature_co_occurrences[feature] * self._total_target_word_co_occurrences[target_word]))
 
     def get_most_similarity_words(self, word, most_common=20):
-        similarity = list(sorted(self._similarity_vector(word), key=lambda k, v: v))
+        similarity = list(sorted(self._similarity_vector(word).items(), reverse=True, key=lambda item: item[1]))
         if most_common < len(similarity):
             similarity = similarity[:most_common]
+
+        similarity = [word for (word, feature) in similarity]
         return similarity
 
     def _similarity_vector(self, word):
@@ -70,22 +65,16 @@ class WordFeature(ABC):
         similarity = defaultdict(float)
         for feature, co_occurrences in self._word_feature[word].items():
             for target_word in self._feature_word[feature]:
-                similarity[self._get_number_key(target_word)] += self._calculate_pmi(word, feature) * \
-                                                                 self._calculate_pmi(target_word, feature)
+                word_pmi = self._calculate_pmi(word, feature)
+                target_word_pmi = self._calculate_pmi(target_word, feature)
+                if word_pmi == -inf or target_word_pmi == -inf:
+                    continue
+                similarity[self._get_word_by_number_key(target_word)] += word_pmi * target_word_pmi
         return similarity
 
     @staticmethod
-    def _get_word_by_key(word_key):
-        for word, key in WordFeature._number_key_of_word.items():
-            if word_key == key:
-                return word
-
-    @staticmethod
-    def _convert_keys_to_words(keys_list):
-        words = list()
-        for key in keys_list:
-            words.append(WordFeature._get_word_by_key(key))
-        return words
+    def _get_word_by_number_key(number_key):
+        return WordFeature._number_to_word[number_key]
 
     @staticmethod
     def _get_number_key(word):
@@ -94,6 +83,7 @@ class WordFeature(ABC):
 
         WordFeature._last_key += 1
         WordFeature._number_key_of_word[word] = WordFeature._last_key
+        WordFeature._number_to_word.append(word)
         return WordFeature._last_key
 
     @staticmethod

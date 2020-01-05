@@ -33,16 +33,3 @@ def corpus_parser(lines, word_feature_types):
 
     print('sentence {0} running time: {1}'.format(counter, datetime.now() - start))
     return words_counter
-
-
-def writetofile(lines):
-    counter = 0
-    with open('test', 'w', encoding='utf-8') as file:
-        for line in lines:
-            if line == '\n':
-                file.write('\n')
-                counter += 1
-                if counter == 500000:
-                    return
-            else:
-                file.write(line)

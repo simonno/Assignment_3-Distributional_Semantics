@@ -63,10 +63,10 @@ def get_similar_words_and_best_contexts(word_vec_file, context_vec_file, words):
 
 
 def print_format(target_word, similar_words_list):
-    line = '{}\n\n'.format(target_word)
+    line = '{}\n'.format(target_word)
     for similar_words in similar_words_list:
-        line += '{}\n'.format('\t'.join(similar_words))
-    return line + '*******\n'
+        line += '{}\n'.format(' '.join(similar_words))
+    return line + '*********\n'
 
 
 def print_most_similarity_words(file_name, target_words, similar_words_lists):

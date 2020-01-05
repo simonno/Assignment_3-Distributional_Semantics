@@ -2,7 +2,7 @@ import sys
 from collections import Counter, defaultdict
 from datetime import datetime
 
-from CorpusParse import corpus_parser, writetofile
+from CorpusParse import corpus_parser
 from DependencyEdgeWordFeature import DependencyEdgeWordFeature
 from SentenceWordFeature import SentenceWordFeature
 from WindowWordFeature import WindowWordFeature
@@ -21,9 +21,9 @@ def print_most_similarity_words(similar_words, most_similar=20):
             for i in range(most_similar):
                 similar_words_line = list()
                 for j in range(len(co_occurrence_types)):
-                    similar_words_line.append(co_occurrence_types[j][i][1])
-                line = ' '.join(similar_words_line)
-                file.write('{}\n'.format(line))
+                    similar_words_line.append(co_occurrence_types[j][i])
+                similar_words_line = ' '.join(similar_words_line)
+                file.write('{}\n'.format(similar_words_line))
             file.write('*********\n')
 
 
@@ -38,7 +38,6 @@ def main(corpus_file_name):
                     'piano']
     start = datetime.now()
     lines = read_lines(corpus_file_name)
-    # writetofile(lines)
 
     sentence_word_feature = SentenceWordFeature()
     window_word_feature = WindowWordFeature()
@@ -52,23 +51,25 @@ def main(corpus_file_name):
     window_word_feature.filter_features(words_counter)
     dependency_edge_word_feature.filter_features(words_counter)
 
-    # start2 = datetime.now()
-    # sentence_word_feature = SentenceWordFeature()
-    # words_counter = corpus_parser(lines, sentence_word_feature)
-    # words_counter = Counter({word: count for word, count in words_counter.items() if count > 99})
-    # sentence_word_feature.filter_features(words_counter)
-    # print('all sentence running time: {}'.format(datetime.now() - start2))
+    # # start2 = datetime.now()
+    # # sentence_word_feature = SentenceWordFeature()
+    # # words_counter = corpus_parser(lines, sentence_word_feature)
+    # # words_counter = Counter({word: count for word, count in words_counter.items() if count > 99})
+    # # sentence_word_feature.filter_features(words_counter)
+    # # print('all sentence running time: {}'.format(datetime.now() - start2))
     #
-    # start2 = datetime.now()
-    # window_word_feature = WindowWordFeature()
-    # corpus_parser(lines, window_word_feature)
-    # window_word_feature.filter_features(words_counter)
-    # print('window running time: {}'.format(datetime.now() - start2))
+    # # start2 = datetime.now()
+    # # window_word_feature = WindowWordFeature()
+    # # words_counter = corpus_parser(lines, window_word_feature)
+    # # words_counter = Counter({word: count for word, count in words_counter.items() if count > 99})
+    # # window_word_feature.filter_features(words_counter)
+    # # print('window running time: {}'.format(datetime.now() - start2))
     #
     # start2 = datetime.now()
     # dependency_edge_word_feature = DependencyEdgeWordFeature()
+    # words_counter = corpus_parser(lines, dependency_edge_word_feature)
+    # words_counter = Counter({word: count for word, count in words_counter.items() if count > 99})
     # dependency_edge_word_feature.filter_features(words_counter)
-    # corpus_parser(lines, dependency_edge_word_feature)
     # print('dep running time: {}'.format(datetime.now() - start2))
 
     print_most_common_words(words_counter)
