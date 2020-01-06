@@ -1,276 +1,276 @@
 car
 
-son
-father
-character
-story
-club
-novel
-company
-car
-body
-mother
-home
-brother
-book
-film
-house
-ship
-family
-student
-name
-song
+be driver vehicle
+to vehicle truck
+have one driver
+'s truck automobile
+time time locomotive
+his to aircraft
+one formula boat
+make ford motorcycle
+would race horse
+their motor motor
+do locomotive country
+game be auto
+two aircraft unit
+when bus station
+will game song
+more have carriage
+work engine album
+get automobile version
+her drive race
+take company day
 *********
 bus
 
-bus
-state
-passenger
-air
-national
-health
-couple
-scene
-loss
-table
-basis
-series
-ball
-village
-portion
-majority
-platform
-trial
-campaign
-number
+be tram rail
+service commuter tram
+to rail taxi
+have station train
+line passenger transit
+station train railway
+it transit commuter
+train metro ferry
+'s freight subway
+route line truck
+one route freight
+system service vehicle
+state railway passenger
+area operate business
+rail transport railroad
+passenger ferry phone
+transport terminal car
+use car card
+other airport cable
+city operator boat
 *********
 hospital
 
-road
-town
-series
-hospital
-village
-room
-battle
-line
-style
-movement
-hill
-writer
-group
-structure
-company
-park
-program
-history
-foundation
-city
+be school clinic
+'s medical school
+school clinic library
+to office museum
+have library airport
+his museum hall
+house college campus
+one city prison
+state public office
+her center park
+college health station
+new university college
+where service municipality
+medical nursing town
+would facility institution
+work state center
+year campus building
+who be headquarters
+their community hotel
+public new residence
 *********
 hotel
 
-road
-town
-hospital
-series
-village
-room
-battle
-style
-writer
-hill
-line
-movement
-structure
-group
-park
-company
-history
-program
-foundation
-hotel
+be restaurant restaurant
+have building building
+to shop inn
+'s resort store
+his city mosque
+one store church
+new house house
+their apartment facility
+who school station
+time residence casino
+would home resort
+it room apartment
+work shopping mall
+house site dormitory
+make mall temple
+where hospital shop
+state church home
+city be campus
+old pub estate
+name country synagogue
 *********
 gun
 
-gun
-road
-town
-hospital
-series
-village
-room
-battle
-writer
-style
-line
-hill
-movement
-group
-structure
-park
-history
-program
-company
-hotel
+be fire pistol
+to artillery weapon
+have battery rifle
+one weapon mortar
+'s pistol cannon
+his cannon sword
+two enemy ammunition
+their wound artillery
+make bullet rocket
+would mortar tube
+time turret aircraft
+year rifle battery
+do tank engine
+fire armour arm
+take one torpedo
+who machine piece
+when arm goal
+more be track
+work time title
+day kill battalion
 *********
 bomb
 
-series
-campaign
-hospital
-battle
-group
-variety
-number
-town
-road
-company
-village
-meeting
-line
-project
-process
-system
-format
-program
-room
-population
+be explosive torpedo
+to attack bombing
+have bomber explosion
+his torpedo shell
+'s aircraft air
+one enemy earthquake
+war bombing fire
+force fighter test
+make explosion sink
+state ship rig
+their destroy charge
+take raid missile
+time plane hit
+first carrier grenade
+who explode bullet
+world combat waste
+new grenade strike
+would damage commission
+attack sink tornado
+kill allied place
 *********
 horse
 
-village
-town
-series
-road
-hospital
-line
-battle
-movement
-room
-style
-wall
-process
-writer
-group
-structure
-history
-program
-network
-doctor
-hotel
+be be car
+have have motorcycle
+to time bike
+'s one bicycle
+one race player
+his player dog
+time first child
+their game bull
+two people woman
+year to motor
+make team driver
+would woman animal
+who his thoroughbred
+when bike cat
+work thoroughbred men
+take rider friend
+other dog person
+her place song
+more child athlete
+will do man
 *********
 fox
 
-paris
-portugal
-denmark
-philadelphia
-khan
-alabama
-sydney
-austria
-adam
-toronto
-williams
-announce
-appoint
-county
-martin
-rome
-wilson
-birmingham
-vancouver
-portland
+be cbs nbc
+to nbc abc
+have abc cbs
+'s television cbc
+his radio bbc
+nbc network television
+show news itv
+new broadcast pb
+news bbc cable
+television cnn radio
+abc tv tv
+one show paramount
+cbs cbc news
+radio espn satellite
+channel anchor sport
+network channel disney
+her broadcasting entertainment
+first programming hudson
+broadcast disney espn
+tv affiliate sky
 *********
 table
 
-couple
-scene
-loss
-table
-basis
-series
-ball
-village
-majority
-portion
-trial
-platform
-campaign
-town
-presence
-battle
-surface
-process
-moment
-direction
+be page page
+to article season
+have one article
+article top list
+do list category
+point bottom system
+would reference image
+one two tower
+can template column
+time be section
+their player map
+wikipedia link hole
+make edit template
+page source term
+use number word
+'s to day
+other have number
+information game track
+should other poll
+two point picture
 *********
 bowl
 
-kingdom
-theatre
-wing
-province
-ministry
-territory
-battalion
-road
-news
-cemetery
-sun
-brigade
-battle
-foundation
-principle
-theater
-uk
-island
-estate
-spring
+game season super
+be league cup
+team championship championship
+season cup playoff
+have game season
+his playoff league
+'s win draft
+to tournament election
+first ncaa award
+time team census
+play final wrestling
+their bowler soccer
+league match november
+win uefa march
+year football september
+match consecutive april
+two player october
+world nfl june
+one first august
+second super contest
 *********
 guitar
 
-guitar
-game
-music
-match
-part
-season
-role
-football
-news
-kingdom
-road
-theatre
-uk
-spring
-hill
-land
-construction
-food
-town
-foundation
+band bass bass
+bass drum drum
+be keyboard keyboard
+'s vocal piano
+drum piano vocal
+song instrument saxophone
+vocal acoustic trumpet
+album violin flute
+have solo violin
+music saxophone cello
+their flute instrument
+to cello percussion
+keyboard string guitarist
+instrument percussion viola
+show rhythm organ
+acoustic ensemble horn
+record vocalist solo
+his trumpet music
+single play tenor
+live music string
 *********
 piano
 
-kingdom
-theatre
-wing
-news
-province
-road
-cemetery
-battalion
-brigade
-ministry
-territory
-sun
-theater
-battle
-principle
-foundation
-spring
-island
-uk
-institute
+violin violin violin
+be flute cello
+cello concerto viola
+concerto cello bass
+guitar viola guitar
+'s op flute
+flute sonata saxophone
+music trumpet keyboard
+to saxophone percussion
+album solo trumpet
+sonata guitar drum
+his bass horn
+have keyboard vocal
+band string solo
+song orchestra orchestra
+year soloist instrument
+their quartet organ
+first ensemble brass
+vocal acoustic mathematics
+live instrument choir
 *********

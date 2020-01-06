@@ -22,12 +22,12 @@ class DependencyEdgeWordFeature(WordFeature):
             modified_tokens = self.search_modified_by_preposition(head, sentence)
             if not modified_tokens:
                 return
-            dependency = ' '.join([token[7] for token in modified_tokens])
-            lemma = ' '.join([token[2] for token in modified_tokens])
+            dependency = modified_tokens[-1][7]
+            lemma = '_'.join([token[2] for token in modified_tokens])
         else:
             dependency = target_word_token[7]
             lemma = head[2]
-        self.__add_feature(target_word_token[2], lemma, dependency, 1)
+        self.__add_feature(target_word_token[2], lemma, dependency, 'up')
 
     def __add_sons_of_target_word(self, sentence, target_word_token):
         for token in sentence:
@@ -37,16 +37,16 @@ class DependencyEdgeWordFeature(WordFeature):
                     modifies_tokens = self.search_modifies_the_preposition(token, sentence)
                     if not modifies_tokens:
                         continue
-                    dependency = token[7] + ' ' + ' '.join([token[7] for token in modifies_tokens])
-                    lemma = token[2] + ' ' + ' '.join([token[2] for token in modifies_tokens])
+                    dependency = modifies_tokens[-1][7]
+                    lemma = token[2] + '_' + '_'.join([token[2] for token in modifies_tokens])
                 else:
                     dependency = token[7]
                     lemma = token[2]
 
-                self.__add_feature(target_word_token[2], lemma, dependency, -1)
+                self.__add_feature(target_word_token[2], lemma, dependency, 'down')
 
     def __add_feature(self, target_word, feature, feature_dep, direction):
-        self._update_word_feature(target_word, (feature, feature_dep, direction))
+        self._update_word_feature(target_word, '|'.join([feature, feature_dep, direction]))
 
     @staticmethod
     def search_modifies_the_preposition(preposition_token, sentence):

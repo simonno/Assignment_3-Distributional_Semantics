@@ -18,7 +18,7 @@ class WordFeature(ABC):
     def get_word_feature_dict(self):
         return self._word_feature
 
-    def filter_features(self, filtered_target_words, most_common=100, at_least_feature_occurrences=75):
+    def filter_features(self, filtered_target_words, most_common=100):
         self._total_co_occurrences = 0
         filtered_word_feature = defaultdict(Counter)
         for target_word in filtered_target_words:
@@ -26,12 +26,11 @@ class WordFeature(ABC):
             word_feature = self._word_feature[target_word]
             filtered_features = Counter()
             for feature, occurrence in word_feature.items():
-                if occurrence >= at_least_feature_occurrences:
-                    filtered_features[feature] = occurrence
-                    self._feature_word[feature].append(target_word)
-                    self._total_co_occurrences += 1
-                    self._total_feature_co_occurrences[feature] += 1
-                    self._total_target_word_co_occurrences[target_word] += 1
+                filtered_features[feature] = occurrence
+                self._feature_word[feature].append(target_word)
+                self._total_co_occurrences += 1
+                self._total_feature_co_occurrences[feature] += 1
+                self._total_target_word_co_occurrences[target_word] += 1
 
             if len(filtered_features.items()):
                 filtered_word_feature[target_word] = Counter(dict(filtered_features.most_common(most_common)))
@@ -72,7 +71,9 @@ class WordFeature(ABC):
         word = WordFeature._get_number_key(word)
         similarity = defaultdict(float)
         for feature, co_occurrences in self._word_feature[word].items():
-            for target_word in self._feature_word[feature]:
+            target_words = self._feature_word[feature].copy()
+            target_words.remove(word)
+            for target_word in target_words:
                 word_pmi = self._calculate_pmi(word, feature)
                 target_word_pmi = self._calculate_pmi(target_word, feature)
                 if word_pmi == -inf or target_word_pmi == -inf:
@@ -120,5 +121,3 @@ class WordFeature(ABC):
     @abstractmethod
     def add_sentence(self, sentence):
         pass
-
-

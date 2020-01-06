@@ -43,11 +43,11 @@ def main(corpus_file_name):
     window_word_feature = WindowWordFeature()
     dependency_edge_word_feature = DependencyEdgeWordFeature()
 
-    words_counter = corpus_parser(lines, [dependency_edge_word_feature])
+    words_counter = corpus_parser(lines, [sentence_word_feature, window_word_feature, dependency_edge_word_feature])
     words_counter = Counter({word: count for word, count in words_counter.items() if count > 99})
-
-    # sentence_word_feature.filter_features(words_counter)
-    # window_word_feature.filter_features(words_counter)
+    print('Number of words which occur more than 100 times in corpus: ', len(words_counter))
+    sentence_word_feature.filter_features(words_counter)
+    window_word_feature.filter_features(words_counter)
     dependency_edge_word_feature.filter_features(words_counter)
 
     print_most_common_words(words_counter)
@@ -55,10 +55,10 @@ def main(corpus_file_name):
     similar_words = defaultdict(list)
     feature_vector = defaultdict(list)
     for target_word in target_words:
-        # similar_words[target_word].append(sentence_word_feature.get_most_similarity_words(target_word))
-        # feature_vector[target_word].append(sentence_word_feature.get_top_attributes(target_word))
-        # similar_words[target_word].append(window_word_feature.get_most_similarity_words(target_word))
-        # feature_vector[target_word].append(window_word_feature.get_top_attributes(target_word))
+        similar_words[target_word].append(sentence_word_feature.get_most_similarity_words(target_word))
+        feature_vector[target_word].append(sentence_word_feature.get_top_attributes(target_word))
+        similar_words[target_word].append(window_word_feature.get_most_similarity_words(target_word))
+        feature_vector[target_word].append(window_word_feature.get_top_attributes(target_word))
         similar_words[target_word].append(dependency_edge_word_feature.get_most_similarity_words(target_word))
         feature_vector[target_word].append(dependency_edge_word_feature.get_top_attributes(target_word))
 
