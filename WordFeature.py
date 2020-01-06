@@ -104,7 +104,8 @@ class WordFeature(ABC):
 
     @staticmethod
     def _is_function_word(token):
-        return True if token[3] in ['DT', 'PRP', 'WDT', 'IN', 'CC', 'RB', 'RP'] or token[7] == 'p' else False
+        return True if token[3] in ['DT', 'PRP', 'WDT', 'IN', 'TO', 'CC', 'RB', 'RP'] or token[7] == 'p' or token[
+            2] in ['be', '\'s'] else False
 
     @staticmethod
     def _is_preposition_word(token):
