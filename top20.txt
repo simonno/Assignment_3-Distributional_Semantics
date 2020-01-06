@@ -1,276 +1,276 @@
 car
 
-car car novel
-race club car
-run hold house
-be win film
-time team family
-model event story
-turn include book
-train attempt company
-have plan body
-lose claim character
-hand ship place
-drive father article
-woman order game
-bring ability club
-head influence home
-set mother time
-little body song
-six action match
-start report country
-home campaign name
+son
+father
+character
+story
+club
+novel
+company
+car
+body
+mother
+home
+brother
+book
+film
+house
+ship
+family
+student
+name
+song
 *********
 bus
 
-bus bus bus
-route train state
-railway air passenger
-train state air
-operate it national
-line route health
-service financial couple
-station railway majority
-street radio pair
-london operate village
-run passenger series
-stop en threat
-east offer factory
-connect metro ball
-road broadcast path
-transport enter portion
-network police description
-main space statue
-centre provide basis
-serve civil result
+bus
+state
+passenger
+air
+national
+health
+couple
+scene
+loss
+table
+basis
+series
+ball
+village
+portion
+majority
+platform
+trial
+campaign
+number
 *********
 hospital
 
-hospital manager park
-medical hospital hospital
-center governor house
-health staff city
-school major event
-hall command time
-care director age
-department army u
-office public center
-college serve field
-science attorney number
-st election street
-art secretary museum
-education more hall
-california become island
-be lieutenant university
-york assembly article
-class state church
-public brigadier club
-de today school
+road
+town
+series
+hospital
+village
+room
+battle
+line
+style
+movement
+hill
+writer
+group
+structure
+company
+park
+program
+history
+foundation
+city
 *********
 hotel
 
-hotel responsible park
-room situate age
-hall unknown time
-be aware battle
-museum temple hospital
-, promote hotel
-represent concept conference
-st designate house
-garden tower center
-centre settlement event
-collection border site
-bill instal university
-old able club
-library bury number
-build factor hill
-family valid library
-found chinese road
-fire stadium studio
-london transfer festival
-home rare hall
+road
+town
+hospital
+series
+village
+room
+battle
+style
+writer
+hill
+line
+movement
+structure
+group
+park
+company
+history
+program
+foundation
+hotel
 *********
 gun
 
-gun gun gun
-fire able group
-machine promote population
-be intend company
-ship unable series
-destroy seem history
-carry necessary style
-control suppose system
-mark possible club
-describe replace city
-to avoid number
-arm rename character
-kill invite program
-replace prepare engine
-face easy line
-class expect family
-attack transfer u
-police willing result
-accord attempt star
-body encourage project
+gun
+road
+town
+hospital
+series
+village
+room
+battle
+writer
+style
+line
+hill
+movement
+group
+structure
+park
+history
+program
+company
+hotel
 *********
 bomb
 
-bomb responsible series
-fire situate number
-attack unknown result
-kill aware population
-battle temple group
-police promote village
-soldier concept town
-father designate company
-be tower range
-send settlement variety
-japanese border pattern
-brother instal bridge
-man able storm
-carry bury structure
-capture factor piece
-attempt valid version
-night chinese system
-death stadium movement
-destroy transfer province
-least rare municipality
+series
+campaign
+hospital
+battle
+group
+variety
+number
+town
+road
+company
+village
+meeting
+line
+project
+process
+system
+format
+program
+room
+population
 *********
 horse
 
-horse send village
-light attempt town
-race prove movement
-be succeed series
-car reveal course
-red carry structure
-official accept bridge
-mark pass group
-introduce fail province
-strong plan city
-describe order committee
-sport put population
-, arrest history
-to grow system
-black drive building
-board complete society
-model try program
-replace entire doctor
-only stop company
-accord claim light
+village
+town
+series
+road
+hospital
+line
+battle
+movement
+room
+style
+wall
+process
+writer
+group
+structure
+history
+program
+network
+doctor
+hotel
 *********
 fox
 
-fox fox khan
-network daily alabama
-news report adam
-channel google williams
-sport story county
-broadcast source announce
-radio responsible appoint
-television situate martin
-tv unknown wilson
-bbc aware saw
-station temple thomas
-press promote jones
-newspaper concept miller
-daily designate refuse
-be tower lee
-launch settlement austin
-computer border launch
-medium instal sail
-video able albania
-report bury chase
+paris
+portugal
+denmark
+philadelphia
+khan
+alabama
+sydney
+austria
+adam
+toronto
+williams
+announce
+appoint
+county
+martin
+rome
+wilson
+birmingham
+vancouver
+portland
 *********
 table
 
-table responsible series
-be situate province
-individual unknown town
-contain aware region
-section temple village
-character promote scene
-example concept municipality
-separate designate city
-article tower process
-mention settlement movement
-type border table
-note instal battle
-least able u
-must bury history
-person factor course
-refer valid area
-remove chinese debate
-see stadium district
-current transfer family
-value rare case
+couple
+scene
+loss
+table
+basis
+series
+ball
+village
+majority
+portion
+trial
+platform
+campaign
+town
+presence
+battle
+surface
+process
+moment
+direction
 *********
 bowl
 
-bowl bowl province
-league league uk
-super responsible kingdom
-team situate county
-competition unknown region
-football aware city
-conference temple district
-goal promote spring
-professional concept valley
-play designate battle
-season tower series
-player settlement cemetery
-final border area
-coach instal territory
-match able u
-club bury town
-game factor field
-career valid state
-championship chinese history
-tournament stadium usa
+kingdom
+theatre
+wing
+province
+ministry
+territory
+battalion
+road
+news
+cemetery
+sun
+brigade
+battle
+foundation
+principle
+theater
+uk
+island
+estate
+spring
 *********
 guitar
 
-guitar guitar guitar
-vocal lead music
-band footballer part
-bass defender role
-drum role game
-rock tournament match
-song important season
-single cricket island
-video match bank
-sound cricketer road
-blue test football
-album level news
-performance football channel
-track club land
-singer who board
-music home hill
-feature game street
-studio major tour
-original rugby site
-perform character wall
+guitar
+game
+music
+match
+part
+season
+role
+football
+news
+kingdom
+road
+theatre
+uk
+spring
+hill
+land
+construction
+food
+town
+foundation
 *********
 piano
 
-piano responsible province
-musical situate wing
-direct unknown kingdom
-guitar aware uk
-sing temple battalion
-scene promote county
-performance concept archive
-perform designate brigade
-blue tower sun
-love settlement city
-rock border theatre
-video instal principle
-theatre able foundation
-song bury regiment
-popular factor company
-musician valid estate
-style chinese valley
-sound stadium island
-david transfer institute
-career rare series
+kingdom
+theatre
+wing
+news
+province
+road
+cemetery
+battalion
+brigade
+ministry
+territory
+sun
+theater
+battle
+principle
+foundation
+spring
+island
+uk
+institute
 *********

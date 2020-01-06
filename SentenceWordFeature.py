@@ -7,7 +7,7 @@ class SentenceWordFeature(WordFeature):
 
     def add_sentence(self, sentence):
         for target_word_token in sentence:
-            if self.is_function_word(target_word_token):
+            if self._is_function_word(target_word_token):
                 continue
             new_sentence = sentence.copy()
             new_sentence.remove(target_word_token)

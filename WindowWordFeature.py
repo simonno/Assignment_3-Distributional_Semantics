@@ -13,7 +13,7 @@ class WindowWordFeature(WordFeature):
             return
         for target_word_index in range(len(sentence)):
             target_word_token = sentence[target_word_index]
-            if self.is_function_word(target_word_token):
+            if self._is_function_word(target_word_token):
                 continue
             left_features_tokens = sentence[:target_word_index]
             right_features_tokens = sentence[target_word_index + 1:]
@@ -23,7 +23,7 @@ class WindowWordFeature(WordFeature):
     def __add_features(self, target_word_token, features_tokens):
         window_size = 0
         for feature_token in features_tokens:
-            if not self.is_function_word(feature_token):
+            if not self._is_function_word(feature_token):
                 self._update_word_feature(target_word_token[2], feature_token[2])
                 window_size += 1
 

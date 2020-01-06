@@ -53,12 +53,20 @@ class WordFeature(ABC):
                 self._total_feature_co_occurrences[feature] * self._total_target_word_co_occurrences[target_word]))
 
     def get_most_similarity_words(self, word, most_common=20):
-        similarity = list(sorted(self._similarity_vector(word).items(), reverse=True, key=lambda item: item[1]))
-        if most_common < len(similarity):
-            similarity = similarity[:most_common]
+        return self._get_top(self._similarity_vector(word), most_common)
 
-        similarity = [word for (word, feature) in similarity]
-        return similarity
+    def get_top_attributes(self, word, top=20):
+        return self._get_top(self._feature_vector(word), top)
+
+    def _feature_vector(self, word):
+        word = WordFeature._get_number_key(word)
+        feature_vector = defaultdict(float)
+        for feature, co_occurrences in self._word_feature[word].items():
+            word_pmi = self._calculate_pmi(word, feature)
+            if word_pmi == -inf:
+                continue
+            feature_vector[str(self._get_word_by_number_key(feature))] = word_pmi
+        return feature_vector
 
     def _similarity_vector(self, word):
         word = WordFeature._get_number_key(word)
@@ -71,6 +79,13 @@ class WordFeature(ABC):
                     continue
                 similarity[self._get_word_by_number_key(target_word)] += word_pmi * target_word_pmi
         return similarity
+
+    @staticmethod
+    def _get_top(dictionary, top):
+        dictionary = list(sorted(dictionary.items(), reverse=True, key=lambda item: item[1]))
+        if top < len(dictionary):
+            dictionary = dictionary[:top]
+        return [word for (word, value) in dictionary]
 
     @staticmethod
     def _get_word_by_number_key(number_key):
@@ -87,17 +102,23 @@ class WordFeature(ABC):
         return WordFeature._last_key
 
     @staticmethod
-    def is_function_word(token):
+    def _is_function_word(token):
         return True if token[3] in ['DT', 'PRP', 'WDT', 'IN', 'CC', 'RB', 'RP'] or token[7] == 'p' else False
 
     @staticmethod
-    def is_preposition_word(token):
+    def _is_preposition_word(token):
         return True if token[3] == 'IN' else False
 
     @staticmethod
-    def is_noun_word(token):
+    def _is_noun_word(token):
         return True if token[3] in ['NN', 'NNP', 'NNS'] else False
+
+    @staticmethod
+    def _is_root(token):
+        return True if token[7] == 'ROOT' else False
 
     @abstractmethod
     def add_sentence(self, sentence):
         pass
+
+
