@@ -1,0 +1,276 @@
+car
+
+the dealership dealership|compmod|up
+, touring accident|compmod|up
+. accident wash|compmod|up
+a race armoured|amod|down
+be crash truck|conj|down
+and parking concept|compmod|down
+in racing crash|compmod|up
+of driver formula|compmod|down
+to passenger race|dobj|up
+car sport bomb|compmod|up
+for motor car|conj|down
+on cable cable|compmod|down
+with drive race|amod|down
+by truck hit_by|adpmod|up
+race championship car|conj|up
+have stock ferry|compmod|up
+that car passenger|compmod|down
+it park racing|compmod|up
+'s bomb freight|compmod|down
+( his driver|compmod|up
+*********
+bus
+
+the route tram|conj|up
+, trolley stop|compmod|up
+bus service serial|compmod|down
+. interchange route|compmod|up
+and transit trolley|compmod|down
+be taxi rout|nsubj|up
+a terminal terminus|compmod|up
+to station interchange|compmod|up
+of tram rail|conj|down
+in shuttle bus|conj|down
+route commuter bus|conj|up
+service depot service|compmod|up
+transit stop shelter|compmod|up
+station terminus terminal|compmod|up
+by bus transit|compmod|up
+( operator rail|conj|up
+) operate station|compmod|up
+on rail depot|compmod|up
+from london stand|compmod|up
+terminal connect passenger|compmod|up
+*********
+hospital
+
+the psychiatric doctor_at|adpmod|up
+, clinic teaching|amod|down
+. bed rush_to|adpmod|up
+in teaching hospital|appos|down
+a hospital bed|compmod|up
+be medical hopkins|compmod|down
+and general psychiatric|amod|down
+of memorial hospital|conj|down
+hospital rush hospital|conj|up
+to mental die_at|adpmod|up
+psychiatric patient stay|compmod|up
+at university hospital|appos|up
+for st memorial|compmod|down
+- care teaching|compmod|down
+medical doctor general|compmod|down
+he child the|det|down
+( die admit_to|adpmod|up
+) royal take_to|adpmod|up
+on have massachusetts|compmod|down
+'s admit child|poss|down
+*********
+hotel
+
+the fairmont sheraton|compmod|down
+, marriott fairmont|compmod|down
+. hilton 5-star|amod|down
+and hotel casino|conj|down
+a restaurant marriott|compmod|down
+hotel casino hotel|appos|down
+in luxury hyatt|compmod|down
+be plaza lobby|compmod|up
+of resort hotel|appos|up
+to room hilton|compmod|down
+at lobby savoy|compmod|down
+resort chain plaza|compmod|down
+) inn luxury|compmod|down
+( grand resort|compmod|down
+restaurant tourism restaurant|conj|down
+for stay resort|conj|down
+room palace hotel|conj|down
+on historic stay_at|adpmod|up
+with guest hotel|conj|up
+have build room|compmod|up
+*********
+gun
+
+the submachine 76mm|num|down
+, anti-aircraft submachine|compmod|down
+. emplacement of_navarone|adpobj|down
+and anti-tank hotchkiss|compmod|down
+a machine anti-aircraft|compmod|down
+be turret machine|compmod|down
+of ammunition emplacement|compmod|up
+to mortar browning|compmod|down
+gun mm arm_with|adpmod|up
+in barrel barrel|compmod|up
+anti-aircraft fire battery_of|adpmod|up
+turret rifle anti-tank|amod|down
+machine deck ammunition|conj|down
+with artillery deck|compmod|down
+( battery aim|dobj|up
+) n rifle|conj|up
+on mount gun|conj|down
+fire gun man|dobj|up
+rifle heavy mm|compmod|down
+for shield gun|conj|up
+*********
+bomb
+
+the incendiary detonate|nsubjpass|up
+, detonate laser-guided|amod|down
+. explodes detonate|dobj|up
+a explode incendiary|amod|down
+be atomic unexploded|amod|down
+and roadside defuse|dobj|up
+of hydrogen explode|nsubj|up
+in disposal disposal|compmod|up
+detonate petrol roadside|compmod|down
+to luftwaffe explodes|compmod|up
+explode explosion luftwaffe|nsubj|down
+bomb ira raid|dobj|down
+on explosive atomic|amod|down
+by raid hydrogen|compmod|down
+atomic sink blast|compmod|up
+bombing blast plant|partmod|down
+that suicide sink|conj|down
+injure drop explosion|compmod|up
+with nuclear by_aircraft|adpobj|down
+bomber attack cluster|compmod|down
+*********
+horse
+
+the thoroughbred buggy|conj|down
+, older pony|conj|down
+. trojan trojan|compmod|down
+and mule mule|conj|down
+a rid harness|compmod|down
+be pony thoroughbred|compmod|down
+of racing older|compmod|down
+thoroughbred harness winged|amod|down
+in riding riding|compmod|up
+to cattle ride|dobj|up
+horse race crazy|compmod|down
+bombay jockey racing|compmod|up
+for crazy rid|dobj|up
+with carriage rider|conj|down
+on breed artillery|compmod|up
+by rider bull|conj|up
+his ride age|partmod|down
+race brigade brigade|compmod|up
+) artillery race|partmod|down
+( regiment race|compmod|up
+*********
+fox
+
+, vulpes hound|conj|down
+the footy sauk|conj|up
+. searchlight searchlight|compmod|up
+fox hound footy|compmod|up
+and sac mulder|compmod|up
+a news sly|compmod|down
+be 20th lucius|compmod|down
+in coyote abc|conj|up
+of sport terrier|compmod|up
+to affiliate net|compmod|up
+on fox hunting|compmod|up
+sport cnn ohio|compmod|up
+( channel 20th|amod|down
+) twentieth news|compmod|up
+news network twentieth|compmod|down
+'s hunting televise_on|adpmod|up
+for century affiliate|compmod|up
+network nbc cat|conj|down
+channel soccer channel|compmod|up
+by abc sport|compmod|up
+*********
+table
+
+the sortable eusebian|compmod|down
+, tennis sortable|amod|down
+. picnic below_list|adpobj|down
+of periodic picnic|amod|down
+be table periodic|compmod|down
+a following tennis|compmod|up
+and content following|compmod|down
+in list of_content|adpobj|down
+to coffee picnic|compmod|down
+table column medal|compmod|down
+tennis medal salt|compmod|up
+for round table_of|adpmod|up
+( salt periodic|amod|down
+) top column_of|adpmod|up
+on league of_table|adpobj|down
+that database knight_of|adpmod|up
+it chair round|compmod|down
+with row following|amod|down
+have bottom the|det|down
+at water sit_at|adpmod|up
+*********
+bowl
+
+the right-arm fast-medium|dobj|down
+, fiesta batsman|rcmod|up
+bowl super xliv|compmod|up
+. batsman xlii|compmod|up
+fiesta bcs fiesta|compmod|down
+in pro xliii|compmod|up
+super gator xxxiv|compmod|up
+a quiz xxxvi|compmod|up
+and rose pace|dobj|down
+be citrus select_to|adpmod|up
+of alley over|dobj|down
+to bowl alley|amod|up
+batsman sugar gator|compmod|down
+wicket orange bowl|conj|down
+game subdivision quiz|compmod|down
+nfl wicket rose|compmod|down
+rose lawn pro|compmod|down
+pro cotton bowl|conj|up
+for game sugar|compmod|down
+( dust citrus|compmod|down
+*********
+guitar
+
+, bass mandolin|conj|down
+the acoustic vocal|appos|up
+and mandolin vocal|appos|down
+guitar vocal harmonica|conj|down
+. riff amplifier|conj|down
+bass harmonica bass|compmod|down
+vocal banjo vocal|conj|up
+a electric vocal|conj|down
+drum esp riff|compmod|up
+( rhythm bass|conj|down
+) keyboard keyboard|conj|down
+be amplifier percussion|conj|down
+on tuning ibanez|compmod|down
+acoustic percussion guitar|conj|down
+of solo esp|compmod|down
+keyboard play solo|compmod|up
+percussion backing rhythm|compmod|down
+in drum acoustic|amod|down
+to gibson bass|appos|down
+with guitar drum|conj|down
+*********
+piano
+
+, concerto viola|conj|up
+the sonata accordion|compmod|up
+. op accompaniment|compmod|up
+and viola cello|conj|up
+sonata violin concerto|compmod|up
+cello cello trio_for|adpmod|up
+concerto accordion violin|conj|up
+a harpsichord sonata_for|adpmod|up
+violin chopin concertino_for|adpmod|up
+op quintet harpsichord|conj|up
+piano clarinet sonata|compmod|up
+in accompaniment harpsichord|conj|down
+clarinet recital concerto_for|adpmod|up
+viola solo recital|compmod|up
+of saxophone clarinet|conj|up
+be synthesizer op|conj|down
+for lesson quintet|compmod|up
+) trumpet violin|conj|down
+( harp virtuoso|compmod|up
+guitar orchestra solo|compmod|up
+*********

@@ -1,0 +1,22 @@
+car
+
+have driver vehicle(-)
+time vehicle truck(-)
+his truck driver(+)
+one motor automobile(-)
+make ford locomotive(-)
+would one aircraft(-)
+their aircraft boat()
+do time motorcycle(-)
+game formula horse(-)
+two race motor(+)
+when automobile country(-)
+will have auto(-)
+more bus unit()
+work locomotive station
+get racing song
+her two carriage
+take auto album
+show home race
+run game version
+race season service
