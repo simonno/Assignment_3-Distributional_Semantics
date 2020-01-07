@@ -27,7 +27,7 @@ def corpus_parser(lines, word_feature_types):
             counter += 1
         else:
             token = line_parser(line)
-            if not WordFeature._is_function_word(token):
+            if not WordFeature.is_function_word(token):
                 words_counter[token[2]] += 1
             sentence.append(token)
 

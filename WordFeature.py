@@ -37,10 +37,10 @@ class WordFeature(ABC):
         self._word_feature = filtered_word_feature
 
     def _update_word_feature(self, target_word, feature):
-        target_word2 = WordFeature._get_number_key(target_word)
-        feature2 = WordFeature._get_number_key(feature)
+        target_word = WordFeature._get_number_key(target_word)
+        feature = WordFeature._get_number_key(feature)
         try:
-            self._word_feature[target_word2][feature2] += 1
+            self._word_feature[target_word][feature] += 1
         except MemoryError:
             print('error')
 
@@ -103,20 +103,21 @@ class WordFeature(ABC):
         return WordFeature._last_key
 
     @staticmethod
-    def _is_function_word(token):
-        return True if token[3] in ['DT', 'PRP', 'WDT', 'IN', 'TO', 'CC', 'RB', 'RP'] or token[7] == 'p' or token[
-            2] in ['be', '\'s'] else False
+    def is_function_word(token):
+        return True if token[3] in ['DT', 'WP', 'WRB', 'PRP', 'MD', 'CD', 'POS', 'WDT', 'IN', 'TO', 'CC', 'RB',
+                                    'RP', 'PRP$', 'EX', 'MD', '.', '(', ')', ','] \
+                       or token[7] == 'p' or token[2] in ['be', 'have', '\'s'] else False
 
     @staticmethod
-    def _is_preposition_word(token):
+    def is_preposition_word(token):
         return True if token[3] == 'IN' else False
 
     @staticmethod
-    def _is_noun_word(token):
+    def is_noun_word(token):
         return True if token[3] in ['NN', 'NNP', 'NNS'] else False
 
     @staticmethod
-    def _is_root(token):
+    def is_root(token):
         return True if token[7] == 'ROOT' else False
 
     @abstractmethod

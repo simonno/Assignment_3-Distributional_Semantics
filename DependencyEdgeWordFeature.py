@@ -8,7 +8,7 @@ class DependencyEdgeWordFeature(WordFeature):
     def add_sentence(self, sentence):
         for target_word_index in range(len(sentence)):
             target_word_token = sentence[target_word_index]
-            if self._is_function_word(target_word_token):
+            if self.is_function_word(target_word_token):
                 continue
             self.__add_head_of_target_word(sentence, target_word_token)
             self.__add_sons_of_target_word(sentence, target_word_token)
@@ -18,7 +18,7 @@ class DependencyEdgeWordFeature(WordFeature):
             return
 
         head = sentence[target_word_token[6] - 1]
-        if self._is_preposition_word(head):
+        if self.is_preposition_word(head):
             modified_tokens = self.search_modified_by_preposition(head, sentence)
             if not modified_tokens:
                 return
@@ -33,7 +33,7 @@ class DependencyEdgeWordFeature(WordFeature):
         for token in sentence:
             if token[6] == target_word_token[0]:
 
-                if self._is_preposition_word(token):
+                if self.is_preposition_word(token):
                     modifies_tokens = self.search_modifies_the_preposition(token, sentence)
                     if not modifies_tokens:
                         continue
@@ -52,7 +52,7 @@ class DependencyEdgeWordFeature(WordFeature):
     def search_modifies_the_preposition(preposition_token, sentence):
         for token in sentence:
             if token[6] == preposition_token[0]:
-                if WordFeature._is_preposition_word(token):
+                if WordFeature.is_preposition_word(token):
                     pre_tokens = DependencyEdgeWordFeature.search_modifies_the_preposition(token, sentence)
                     pre_tokens.insert(0, token)
                     return pre_tokens
@@ -63,7 +63,7 @@ class DependencyEdgeWordFeature(WordFeature):
     @staticmethod
     def search_modified_by_preposition(preposition_token, sentence):
         pre_tokens = [preposition_token]
-        while not WordFeature._is_root(pre_tokens[0]) and WordFeature._is_preposition_word(pre_tokens[0]):
+        while not WordFeature.is_root(pre_tokens[0]) and WordFeature.is_preposition_word(pre_tokens[0]):
             token = sentence[pre_tokens[0][6] - 1]
             pre_tokens.insert(0, token)
         return pre_tokens
